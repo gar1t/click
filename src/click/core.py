@@ -2875,7 +2875,11 @@ class Option(Parameter):
             # skip count with default range type
             and not (self.count and self.type.min == 0 and self.type.max is None)
         ):
-            range_str = self.type._describe_range()
+            range_str = (
+                self.type.help
+                if self.type.help is not None
+                else self.type._describe_range()
+            )
 
             if range_str:
                 extra["range"] = range_str

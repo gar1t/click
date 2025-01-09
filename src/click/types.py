@@ -444,12 +444,14 @@ class _NumberRangeBase(_NumberParamTypeBase):
         min_open: bool = False,
         max_open: bool = False,
         clamp: bool = False,
+        help: str | None = None,
     ) -> None:
         self.min = min
         self.max = max
         self.min_open = min_open
         self.max_open = max_open
         self.clamp = clamp
+        self.help = help
 
     def to_info_dict(self) -> dict[str, t.Any]:
         info_dict = super().to_info_dict()
